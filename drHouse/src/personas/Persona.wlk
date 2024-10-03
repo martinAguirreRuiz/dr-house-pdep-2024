@@ -1,3 +1,4 @@
+import src.enfermedades.Enfermedad.*
 class Persona {
 
     var temperatura
@@ -49,5 +50,22 @@ class Persona {
     method celulas() = celulas
 
     method enfermedadQueMasCelulasAfecta() = enfermedades.max{enfermedad => enfermedad.celulasAmenazadas()}
+
+    method recibirMedicamento(cantidadMedicamento) {
+      self.aplicarDosis(cantidadMedicamento)
+      self.removerEnfermedadesCuradas()
+    }
+
+    method aplicarDosis(cantidadMedicamento) {
+      enfermedades.forEach{enfermedad => enfermedad.atenuarse(cantidadMedicamento * 15)}
+    }
+
+    method removerEnfermedadesCuradas() {
+      enfermedades.removeAllSuchThat{
+        enfermedad => enfermedad.estaCurada()
+      }
+    }
+
+    method noTieneEnfermedad(enfermedad) = !enfermedades.contains(enfermedad)
 
 }

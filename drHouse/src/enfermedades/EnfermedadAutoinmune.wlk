@@ -1,6 +1,6 @@
-class EnfermedadAutoInmune {
+import Enfermedad.*
+class EnfermedadAutoInmune inherits Enfermedad{
     
-    var celulasAmenazadas
     var contadorEfectosRealizados = 0
 
     method efecto(persona) {
@@ -13,7 +13,5 @@ class EnfermedadAutoInmune {
     method aumentarContadorEfectosRealizados() {
       contadorEfectosRealizados += 1
     }
-
-    method celulasAmenazadas() = celulasAmenazadas
 
 }

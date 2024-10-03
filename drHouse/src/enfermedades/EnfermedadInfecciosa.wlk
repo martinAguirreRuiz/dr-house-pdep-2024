@@ -1,6 +1,5 @@
-class EnfermedadInfecciosa {
-
-    var celulasAmenazadas
+import Enfermedad.*
+class EnfermedadInfecciosa inherits Enfermedad {
 
     method efecto(persona) {
         persona.aumentarTemperatura(celulasAmenazadas/1000)
@@ -11,7 +10,4 @@ class EnfermedadInfecciosa {
     }
 
     method agresiva(persona) = celulasAmenazadas > persona.celulas() * 0.1
-
-    method celulasAmenazadas() = celulasAmenazadas
-
 }
